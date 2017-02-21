@@ -23,6 +23,11 @@
 #include <QtDebug>
 #include <QtCore/qmath.h>
 
+//https://my.oschina.net/chamsdoncon/blog/794627 value = PI/2
+#ifndef M_PI_2
+#define M_PI_2 (1.57079632679489661923)
+#endif
+
 namespace QtAV {
 
 Attribute::Attribute(DataType type, int tupleSize, int offset, bool normalize)

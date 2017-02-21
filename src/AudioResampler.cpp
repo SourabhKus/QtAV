@@ -112,11 +112,13 @@ const AudioFormat& AudioResampler::inAudioFormat() const
 
 void AudioResampler::setOutAudioFormat(const AudioFormat& format)
 {
+   /* Somehow its crashing here
     DPTR_D(AudioResampler);
     if (d.out_format == format)
         return;
+
     d.out_format = format;
-    prepare();
+    prepare();*/
 }
 
 AudioFormat& AudioResampler::outAudioFormat()

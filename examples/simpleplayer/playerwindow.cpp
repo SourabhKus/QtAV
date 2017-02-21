@@ -34,7 +34,7 @@ PlayerWindow::PlayerWindow(QWidget *parent) : QWidget(parent)
     m_player = new AVPlayer(this);
     QVBoxLayout *vl = new QVBoxLayout();
     setLayout(vl);
-    m_vo = new VideoOutput(this);
+    m_vo = new VideoOutput(VideoRenderer::id("Widget"), this);
     if (!m_vo->widget()) {
         QMessageBox::warning(0, QString::fromLatin1("QtAV error"), tr("Can not create video renderer"));
         return;
@@ -68,7 +68,9 @@ void PlayerWindow::openMedia()
     QString file = QFileDialog::getOpenFileName(0, tr("Open a video"));
     if (file.isEmpty())
         return;
-    m_player->play(file);
+
+    m_player->play("udp://@224.10.10.10:15004/");
+    //m_player->play(file);
 }
 
 void PlayerWindow::seekBySlider(int value)

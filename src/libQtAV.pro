@@ -1,3 +1,7 @@
+INCLUDEPATH += C:/Users/SOURABH/Desktop/QtAV/QtAV/ffmpeg-2.1.3-mingw32pcx+msvc/include
+LIBS += -LC:/Users/SOURABH/Desktop/QtAV/QtAV/ffmpeg-2.1.3-mingw32pcx+msvc/lib
+LIBS += -lavcodec -lavfilter -lavformat -lavutil -lswscale  -lswresample
+
 TEMPLATE = lib
 MODULE_INCNAME = QtAV # for mac framework. also used in install_sdk.pro
 TARGET = QtAV
@@ -279,16 +283,17 @@ config_d3d11va {
   }
   winrt: LIBS *= -ld3d11
 }
-win32:!winrt {
-  HEADERS += directx/SurfaceInteropD3D9.h
-  SOURCES += directx/SurfaceInteropD3D9.cpp
-  enable_egl {
-    SOURCES += directx/SurfaceInteropD3D9EGL.cpp
-  }
-  enable_desktopgl {
-    SOURCES += directx/SurfaceInteropD3D9GL.cpp
-  }
-}
+#SOURABH
+#win32:!winrt {
+#  HEADERS += directx/SurfaceInteropD3D9.h
+#  SOURCES += directx/SurfaceInteropD3D9.cpp
+#  enable_egl {
+#    SOURCES += directx/SurfaceInteropD3D9EGL.cpp
+#  }
+#  enable_desktopgl {
+#    SOURCES += directx/SurfaceInteropD3D9GL.cpp
+#  }
+#}
 config_dxva {
   CONFIG *= d3dva
   DEFINES *= QTAV_HAVE_DXVA=1

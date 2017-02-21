@@ -1,3 +1,7 @@
+INCLUDEPATH += C:/Users/SOURABH/Desktop/QtAV/QtAV/ffmpeg-2.1.3-mingw32pcx+msvc/include
+LIBS += -LC:/Users/SOURABH/Desktop/QtAV/QtAV/ffmpeg-2.1.3-mingw32pcx+msvc/lib
+LIBS += -lavcodec -lavfilter -lavformat -lavutil -lswscale  -lswresample
+
 include(root.pri)
 
 TEMPLATE = subdirs
@@ -34,9 +38,9 @@ OTHER_FILES += \
 	templates/derived.h templates/derived.cpp templates/derived_p.h \
 	templates/final.h templates/final.cpp
 #OTHER_FILES += config.test/mktest.sh
-EssentialDepends = avutil avcodec avformat swscale
+#EssentialDepends = avutil avcodec avformat swscale
 winrt: CONFIG *= no-avdevice no-openal no-portaudio no-dsound no-gdiplus
-OptionalDepends = swresample avresample
+#OptionalDepends = swresample avresample
 !no-avfilter: OptionalDepends *= avfilter
 !no-avdevice: OptionalDepends *= avdevice
 # QtOpenGL module. In Qt5 we can disable it and still have opengl support
@@ -78,9 +82,9 @@ mac|ios {
   !no-videotoolbox: OptionalDepends *= videotoolbox
 }
 runConfigTests()
-!config_avresample:!config_swresample {
-  error("libavresample or libswresample is required. Setup your environment correctly then delete $$BUILD_DIR/.qmake.conf and run qmake again")
-}
+#!config_avresample:!config_swresample {
+  #error("libavresample or libswresample is required. Setup your environment correctly then delete $$BUILD_DIR/.qmake.conf and run qmake again")
+#}
 PACKAGE_VERSION = $$QTAV_VERSION
 PACKAGE_NAME= QtAV
 include(pack.pri)
